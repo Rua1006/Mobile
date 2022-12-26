@@ -30,18 +30,1754 @@
 
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
-
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <!-- 반응형 및 모바일에서는 스타일의 크기 단위는 vw, vh, %, rem 등 과 같이 해당 기기나 콘텐츠의 크기에 상대적인 단위를 사용해서 css 속성을 설정해야 함 -->
 </head>
-<body>
-    <h2>기기(미디어)의 그래픽 논리적 해상도별 이미지 표현</h2>
-    <div id="img_fr">
-        <img srcset="vs1-320w.jpg 320w, vs1-640w.jpg 640w, vs1-1280w.jpg 1281w" 
-            sizes="(max-width:320px) 280px, (max-width:640px) 600px, (max-width:1280px) 1140px"
-            src="vs1.jpg" alt="비주얼 이미지">
+<body class="ui-mobile-viewport ui-overlay-a">
+<!-- 메인페이지 -->
+<div id="page" data-role="page" class="ui-page ui-page-theme-a">
+<header data-role="header" class="ui-header" data-theme="a">
+    <h1 role="heading" class="ui-title">수리랑</h1>
+    <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+    <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+        <ul class="ui-grid-d">
+            <li class="ui-block-a">
+                <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                    <span class="ui-btn-text">맥주</span>
+                    <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                </a>
+            </li>
+            <li class="ui-block-b">
+                <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                    <span class="ui-btn-text">소주</span>
+                    <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                </a>
+            </li>
+            <li class="ui-block-c">
+                <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                    <span class="ui-btn-text">막걸리</span>
+                    <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                </a>
+            </li>
+            <li class="ui-block-d">
+                <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                    <span class="ui-btn-text">와인</span>
+                    <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                </a>
+            </li>
+            <li class="ui-block-e">
+                <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                    <span class="ui-btn-text">위스키</span>
+                    <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div data-role="content" class="ui-content">
+<div dat-role="content" role="sub" class="ui-content">
+    <h2>오늘의 추천</h2>
+    <div class="box">
+        <img src="sample/sample_images_01.png" alt="example" style="width: 350px;">
     </div>
-    <div id="wrap">
-        
+</div>   
+<div data-role="content" role="sub" class="ui-content">
+    <h3>공지사항</h3>
+    <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+        <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-li-has-count ui-first-child">월요일, 12 26, 2022
+            <span class="ui-li-count ui-body-inherit">3</span>
+        </li>
+        <li>
+            <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                <h4>공지사항 제목1</h4>
+                <p>
+                    <strong>공지사항 내용1</strong>
+                </p>
+                <p class="ui-li-aside">
+                    <strong>12:32</strong>오후
+                </p>
+            </a>
+            <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                <h4>공지사항 제목2</h4>
+                <p>
+                    <strong>공지사항 내용2</strong>
+                </p>
+                <p class="ui-li-aside">
+                    <strong>12:32</strong>오후
+                </p>
+            </a>
+            <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                <h4>공지사항 제목3</h4>
+                <p>
+                    <strong>공지사항 내용3</strong>
+                </p>
+                <p class="ui-li-aside">
+                    <strong>12:32</strong>오후
+                </p>
+            </a>                          
+        </li>    
+    </ul>
+</div>
+</div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 로그인 페이지 -->
+<div id="page1" data-role="page1" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <div data-role="content" role="main" class="ui-content">
+            <h2 class="ui-title">로그인 폼</h2>
+            <div data-role="container">
+                <form>
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"> 
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit ui-first-child">
+                            <input type="text" name="id" id="id" value="" data-theme="a" data-clear-btn="true" placeholder="아이디 입력">
+                        </li>
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit">
+                            <input type="password" name="pw" id="pw" value="" data-theme="a" data-clear-btn="true" placeholder="패스워드 입력">
+                        </li>
+                    </ul>
+                    <div class="ui-btn-group">
+                        <button type="submit" class="ui-btn ui-btn-inline">로그인</button>
+                        <button type="reset" class="ui-btn ui-btn-inline">취소</button>
+                        <a href="#page2" data-role="main" class="ui-btn ui-btn-inline" role="button">회원가입</a>
+                    </div>
+                </form>
+            </div>
+        </div> 
     </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 회원가입 -->
+<div id="page2" data-role="page2" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <div data-role="content" role="main" class="ui-content">
+            <h2 class="ui-title">회원가입</h2>
+            <div data-role="container">
+                <form>
+                    <ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow"> 
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit ui-first-child">
+                            <input type="text" name="id" id="id" value="" data-theme="a" placeholder="아이디 입력">
+                            <button type="button" class="ui-btn ui-btn-inline">중복확인</button>
+                        </li>
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit">
+                            <input type="password" name="pw" id="pw" value="" data-theme="a" placeholder="패스워드 입력">
+                        </li>
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit">
+                            <input type="password" name="pw2" id="pw2" value="" data-theme="a" placeholder="패스워드 확인 입력">
+                        </li>
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit">
+                            <input type="text" name="name" id="name" value="" data-theme="a" placeholder="이름 입력">
+                        </li>
+                        <li class="ui-filed-contain ui-li-static ui-body-inherit">
+                            <input type="date" name="born" id="born" value="" data-theme="a" placeholder="생년월일 입력">
+                        </li>
+                    </ul>
+                    <div class="ui-btn-group">
+                        <button type="submit" class="ui-btn ui-btn-inline">가입하기</button>
+                        <button type="reset" class="ui-btn ui-btn-inline">취소</button>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 맥주 메뉴 -->
+<div id="page3" data-role="page3" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">맥주</h2>
+        <div data-role="tabs">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#page13" class="ui-btn-active">브랜드</a></li>
+                <li><a href="#page14">추천메뉴</a></li>
+                <li><a href="#page15">추천게시판</a></li>
+              </ul>
+            </div>
+            <div id="page13">
+                <div dat-role="content" role="sub" class="ui-content">
+                    <h2 class="ui-title">브랜드</h2>
+                    <div class="box">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div data-role="content" role="sub" class="ui-content">
+                    <h3>브랜드 찾기</h3>
+                    <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                        <li class="ul-li-has-thumb ui-first-child">
+                            <a href="#page4" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_02.png" alt="sample">
+                                <h3>브랜드명1</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_03.png" alt="sample">
+                                <h3>브랜드명2</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_04.png" alt="sample">
+                                <h3>브랜드명3</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_05.png" alt="sample">
+                                <h3>브랜드명4</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="page14">
+                <div data-role="content" class="ui-content">
+                    <h2 class="ui-title">추천 메뉴</h2>
+                    <select name="select-choice-0" id="select-choice-0">
+                        <option value="추천메뉴1">추천메뉴1</option>
+                        <option value="추천메뉴2">추천메뉴2</option>
+                        <option value="추천메뉴3">추천메뉴3</option>
+                        <option value="추천메뉴4">추천메뉴4</option>
+                    </select>
+                    <div class="box">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="content" role="sub" class="ui-content">
+                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
+                            </li>
+                            <li>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름1</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름2</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름3</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름4</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름5</h4>
+                                </a>                
+                            </li>    
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="content" role="sub" class="ui-content">
+                            <div data-role="collapsible-set">
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>음식1</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식2</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식3</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식4</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page15">
+                <h2 class="ui-title">추천 게시판</h2>
+                <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_01.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_02.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_03.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_04.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_05.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                </ol>
+                <div class="ui-btn-group">
+                    <a href="#page28" data-role="main" class="ui-btn ui-btn-inline" role="button">추천글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+            <h3>©copyright</h3>
+        </footer>
+    </div>
+</div>
+<!-- 맥주 브랜드명 1 보기 -->
+<div id="page4" data-role="page4" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">맥주 브랜드명 1</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="box">
+                <img src="sample/sample_images_02.png" alt="example" style="width: 350px;">
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름1</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름2</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름3</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름4</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름5</h4>
+                    </a>                
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 소주 -->
+<div id="page5" data-role="page5" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">소주</h2>
+        <div data-role="tabs">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#page16" class="ui-btn-active">브랜드</a></li>
+                <li><a href="#page17">추천메뉴</a></li>
+                <li><a href="#page18">추천게시판</a></li>
+              </ul>
+            </div>
+            <div id="page16">
+                <div dat-role="content" role="sub" class="ui-content">
+                    <h2 class="ui-title">브랜드</h2>
+                    <div class="box">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div data-role="content" role="sub" class="ui-content">
+                    <h3>브랜드 찾기</h3>
+                    <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                        <li class="ul-li-has-thumb ui-first-child">
+                            <a href="#page4" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_02.png" alt="sample">
+                                <h3>브랜드명1</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_03.png" alt="sample">
+                                <h3>브랜드명2</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_04.png" alt="sample">
+                                <h3>브랜드명3</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_05.png" alt="sample">
+                                <h3>브랜드명4</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="page17">
+                <div data-role="content" class="ui-content">
+                    <h2 class="ui-title">추천 메뉴</h2>
+                    <select name="select-choice-0" id="select-choice-0">
+                        <option value="추천메뉴1">추천메뉴1</option>
+                        <option value="추천메뉴2">추천메뉴2</option>
+                        <option value="추천메뉴3">추천메뉴3</option>
+                        <option value="추천메뉴4">추천메뉴4</option>
+                    </select>
+                    <div class="box">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="content" role="sub" class="ui-content">
+                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
+                            </li>
+                            <li>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름1</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름2</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름3</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름4</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름5</h4>
+                                </a>                
+                            </li>    
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="content" role="sub" class="ui-content">
+                            <div data-role="collapsible-set">
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>음식1</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식2</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식3</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식4</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page18">
+                <h2 class="ui-title">추천 게시판</h2>
+                <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_01.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_02.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_03.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_04.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_05.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                </ol>
+                <div class="ui-btn-group">
+                    <a href="#page28" data-role="main" class="ui-btn ui-btn-inline" role="button">추천글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+            <h3>©copyright</h3>
+        </footer>
+    </div>
+</div>    
+<!-- 소주 브랜드명 1 보기 -->
+<div id="page6" data-role="page6" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">소주 브랜드명 1</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="box">
+                <img src="sample/sample_images_03.png" alt="example" style="width: 350px;">
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름1</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름2</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름3</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름4</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름5</h4>
+                    </a>                
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 막걸리 메뉴 -->
+<div id="page7" data-role="page7" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">막걸리</h2>
+        <div data-role="tabs">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#page19" class="ui-btn-active">브랜드</a></li>
+                <li><a href="#page20">추천메뉴</a></li>
+                <li><a href="#page21">추천게시판</a></li>
+              </ul>
+            </div>
+            <div id="page19">
+                <div dat-role="content" role="sub" class="ui-content">
+                    <h2 class="ui-title">브랜드</h2>
+                    <div class="box">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div data-role="content" role="sub" class="ui-content">
+                    <h3>브랜드 찾기</h3>
+                    <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                        <li class="ul-li-has-thumb ui-first-child">
+                            <a href="#page4" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_02.png" alt="sample">
+                                <h3>브랜드명1</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_03.png" alt="sample">
+                                <h3>브랜드명2</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_04.png" alt="sample">
+                                <h3>브랜드명3</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_05.png" alt="sample">
+                                <h3>브랜드명4</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="page20">
+                <div data-role="content" class="ui-content">
+                    <h2 class="ui-title">추천 메뉴</h2>
+                    <select name="select-choice-0" id="select-choice-0">
+                        <option value="추천메뉴1">추천메뉴1</option>
+                        <option value="추천메뉴2">추천메뉴2</option>
+                        <option value="추천메뉴3">추천메뉴3</option>
+                        <option value="추천메뉴4">추천메뉴4</option>
+                    </select>
+                    <div class="box">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="content" role="sub" class="ui-content">
+                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
+                            </li>
+                            <li>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름1</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름2</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름3</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름4</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름5</h4>
+                                </a>                
+                            </li>    
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="content" role="sub" class="ui-content">
+                            <div data-role="collapsible-set">
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>음식1</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식2</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식3</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식4</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page21">
+                <h2 class="ui-title">추천 게시판</h2>
+                <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_01.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_02.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_03.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_04.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_05.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                </ol>
+                <div class="ui-btn-group">
+                    <a href="#page28" data-role="main" class="ui-btn ui-btn-inline" role="button">추천글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+            <h3>©copyright</h3>
+        </footer>
+    </div>
+</div>    
+<!-- 막걸리 브랜드명 1 보기 -->
+<div id="page8" data-role="page8" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">막걸리 브랜드명 1</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="box">
+                <img src="sample/sample_images_04.png" alt="example" style="width: 350px;">
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름1</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름2</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름3</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름4</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름5</h4>
+                    </a>                
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 와인 메뉴 -->
+<div id="page9" data-role="page9" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">와인</h2>
+        <div data-role="tabs">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#page22" class="ui-btn-active">브랜드</a></li>
+                <li><a href="#page23">추천메뉴</a></li>
+                <li><a href="#page24">추천게시판</a></li>
+              </ul>
+            </div>
+            <div id="page22">
+                <div dat-role="content" role="sub" class="ui-content">
+                    <h2 class="ui-title">브랜드</h2>
+                    <div class="box">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div data-role="content" role="sub" class="ui-content">
+                    <h3>브랜드 찾기</h3>
+                    <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                        <li class="ul-li-has-thumb ui-first-child">
+                            <a href="#page4" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_02.png" alt="sample">
+                                <h3>브랜드명1</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_03.png" alt="sample">
+                                <h3>브랜드명2</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_04.png" alt="sample">
+                                <h3>브랜드명3</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_05.png" alt="sample">
+                                <h3>브랜드명4</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="page23">
+                <div data-role="content" class="ui-content">
+                    <h2 class="ui-title">추천 메뉴</h2>
+                    <select name="select-choice-0" id="select-choice-0">
+                        <option value="추천메뉴1">추천메뉴1</option>
+                        <option value="추천메뉴2">추천메뉴2</option>
+                        <option value="추천메뉴3">추천메뉴3</option>
+                        <option value="추천메뉴4">추천메뉴4</option>
+                    </select>
+                    <div class="box">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="content" role="sub" class="ui-content">
+                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
+                            </li>
+                            <li>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름1</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름2</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름3</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름4</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름5</h4>
+                                </a>                
+                            </li>    
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="content" role="sub" class="ui-content">
+                            <div data-role="collapsible-set">
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>음식1</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식2</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식3</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식4</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page24">
+                <h2 class="ui-title">추천 게시판</h2>
+                <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_01.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_02.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_03.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_04.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_05.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                </ol>
+                <div class="ui-btn-group">
+                    <a href="#page28" data-role="main" class="ui-btn ui-btn-inline" role="button">추천글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+            <h3>©copyright</h3>
+        </footer>
+    </div>
+</div>    
+<!-- 와인 브랜드명 1 보기 -->
+<div id="page10" data-role="page10" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">와인 브랜드명 1</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="box">
+                <img src="sample/sample_images_05.png" alt="example" style="width: 350px;">
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름1</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름2</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름3</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름4</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름5</h4>
+                    </a>                
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 위스키 메뉴 -->
+<div id="page11" data-role="page11" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">위스키</h2>
+        <div data-role="tabs">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#page25" class="ui-btn-active">브랜드</a></li>
+                <li><a href="#page26">추천메뉴</a></li>
+                <li><a href="#page27">추천게시판</a></li>
+              </ul>
+            </div>
+            <div id="page25">
+                <div dat-role="content" role="sub" class="ui-content">
+                    <h2 class="ui-title">브랜드</h2>
+                    <div class="box">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div data-role="content" role="sub" class="ui-content">
+                    <h3>브랜드 찾기</h3>
+                    <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                        <li class="ul-li-has-thumb ui-first-child">
+                            <a href="#page4" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_02.png" alt="sample">
+                                <h3>브랜드명1</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_03.png" alt="sample">
+                                <h3>브랜드명2</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_04.png" alt="sample">
+                                <h3>브랜드명3</h3>
+                            </a>
+                        </li>
+                        <li class="ul-li-has-thumb ui-body-inherit">
+                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <img src="sample/sample_images_05.png" alt="sample">
+                                <h3>브랜드명4</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="page26">
+                <div data-role="content" class="ui-content">
+                    <h2 class="ui-title">추천 메뉴</h2>
+                    <select name="select-choice-0" id="select-choice-0">
+                        <option value="추천메뉴1">추천메뉴1</option>
+                        <option value="추천메뉴2">추천메뉴2</option>
+                        <option value="추천메뉴3">추천메뉴3</option>
+                        <option value="추천메뉴4">추천메뉴4</option>
+                    </select>
+                    <div class="box">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 350px;">
+                    </div>
+                </div>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <div data-role="content" role="sub" class="ui-content">
+                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
+                            </li>
+                            <li>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름1</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름2</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름3</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름4</h4>
+                                </a>
+                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                    <h4>제품 이름5</h4>
+                                </a>                
+                            </li>    
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div data-role="content" role="sub" class="ui-content">
+                            <div data-role="collapsible-set">
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>음식1</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식2</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식3</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>음식4</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page27">
+                <h2 class="ui-title">추천 게시판</h2>
+                <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_01.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_02.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_03.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_04.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                    <li class="ul-li-has-thumb ui-first-child">
+                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                            <img src="sample/sample_images_05.png" alt="sample">
+                            <h2>추천게시판</h2>
+                            <p>테스트</p>
+                        </a>
+                    </li>
+                </ol>
+                <div class="ui-btn-group">
+                    <a href="#page28" data-role="main" class="ui-btn ui-btn-inline" role="button">추천글쓰기</a>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+            <h3>©copyright</h3>
+        </footer>
+    </div>
+</div>    
+<!-- 위스키 브랜드명 1 보기 -->
+<div id="page12" data-role="page12" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a">
+                    <a href="#page3" id="bars" data-icon="bars" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b">
+                    <a href="#page5" id="home" data-icon="home" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c">
+                    <a href="#page7" id="grid" data-icon="grid" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d">
+                    <a href="#page9" id="heart" data-icon="heart" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e">
+                    <a href="#page11" id="user" data-icon="user" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">위스키 브랜드명 1</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="box">
+                <img src="sample/sample_images_06.png" alt="example" style="width: 350px;">
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름1</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름2</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름3</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름4</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>제품 이름5</h4>
+                    </a>                
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+
 </body>
 </html>
