@@ -31,8 +31,10 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="favicon-152.png">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
     <!-- 반응형 및 모바일에서는 스타일의 크기 단위는 vw, vh, %, rem 등 과 같이 해당 기기나 콘텐츠의 크기에 상대적인 단위를 사용해서 css 속성을 설정해야 함 -->
     <style>
         .ui-icon-custom1:after {background-image:url("beer.png"); background-position: center center; background-size: 80%; background-color: #fff;}
@@ -41,6 +43,27 @@
         .ui-icon-custom4:after {background-image:url("wine.png"); background-position: center center; background-size: 80%; background-color: #fff;}
         .ui-icon-custom5:after {background-image:url("wisky.png"); background-position: center center; background-size: 100%; background-color: #fff;}
         textarea {height: 25vh !important; }
+        .heading {font-size: 14px; padding:0.5em 1.143em; border-radius: 0.3125em;}
+        .video-player {clear:both;}
+        .video-player:after {content: ""; display: block; clear: both;}
+        .vdo1-dimensions { width:600px; margin: 0; padding: 0; min-width:600px;  min-height:452px; }
+        .vdo1-dimensions::after { content:""; clear:both; display:block; }
+        .video-js .vjs-tech { display:block; width:auto; min-width:600px; min-height:452px;}
+        .ui-content .ui-listview-inset, .ui-panel-inner>.ui-listview-inset {margin: 0.5em 0;}
+        
+        /* 모바일 */
+        @media screen and (max-width:767px) {
+            .vdo1-dimensions {width:350px; height:250px; min-width:320px; min-height:auto;}
+            .video-js .vjs-tech{display:block; width:350px; height:250px; min-width:320px; min-height:auto;}
+        }
+        /* 태블릿 */
+        @media screen and (min-width:768px) and (max-width:959px){
+
+        }
+        /* 데스크탑 */
+        @media screen and (min-width:960px) {
+        
+        }
     </style>
 </head>
 <body class="ui-mobile-viewport ui-overlay-a">
@@ -88,7 +111,7 @@
 <div dat-role="content" role="sub" class="ui-content">
     <h2>오늘의 추천</h2>
     <div class="box">
-        <img src="sample/sample_images_01.png" alt="example" style="width: 48vh;">
+        <img src="sample/main.jpg" alt="main" style="width: 83vw;">
     </div>
 </div>   
 <div data-role="content" role="sub" class="ui-content">
@@ -138,7 +161,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -205,7 +228,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -281,7 +304,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="home" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -329,140 +352,175 @@
             </div>
             <div id="page13">
                 <div dat-role="content" role="sub" class="ui-content">
-                    <h2 class="ui-title">브랜드</h2>
                     <div class="box">
-                        <img src="sample/sample_images_02.png" alt="example" style="width: 48vh;">
+                        <img src="sample/beer.jpg" alt="bear" style="width: 83vw;">
                     </div>
                 </div>
                 <div data-role="content" role="sub" class="ui-content">
                     <h3>브랜드 찾기</h3>
                     <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
-                        <li class="ul-li-has-thumb ui-first-child">
+                        <li class="ui-first-child">
                             <a href="#page4" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_02.png" alt="sample">
-                                <h3>브랜드명1</h3>
+                                <h3>하이트 진로</h3>
                             </a>
                         </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_03.png" alt="sample">
-                                <h3>브랜드명2</h3>
+                        <li class="ui-body-inherit">
+                            <a href="#page31" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <h3>OB</h3>
                             </a>
                         </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_04.png" alt="sample">
-                                <h3>브랜드명3</h3>
-                            </a>
-                        </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_05.png" alt="sample">
-                                <h3>브랜드명4</h3>
+                        <li class="ui-body-inherit">
+                            <a href="#page32" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <h3>롯데칠성음료</h3>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div id="page14">
-                <div data-role="content" class="ui-content">
-                    <h2 class="ui-title">추천 메뉴</h2>
-                    <select name="select-choice-0" id="select-choice-0">
-                        <option value="추천메뉴1">추천메뉴1</option>
-                        <option value="추천메뉴2">추천메뉴2</option>
-                        <option value="추천메뉴3">추천메뉴3</option>
-                        <option value="추천메뉴4">추천메뉴4</option>
+                <div id="page33" data-role="content" class="ui-content">
+                    <h3 class="ui-title">추천 메뉴</h3>
+                    <select name="select-choice-0" id="select-choice-0" onchange="if(this.value) location.href=(this.value)">
+                        <option value="#page33">치킨</option>
+                        <option value="#page34">피자</option>
                     </select>
                     <div class="box">
-                        <img src="sample/sample_images_12.png" alt="example" style="width: 48vh;">
+                        <h3>치킨</h3>
+                        <img src="sample/chi.jpg" alt="example" style="width: 83vw;">
                     </div>
-                </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <div data-role="content" role="sub" class="ui-content">
-                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
-                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
-                            </li>
-                            <li>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름1</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름2</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름3</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름4</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름5</h4>
-                                </a>                
-                            </li>    
-                        </ul>
-                        </div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div data-role="content" role="sub" class="ui-content">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
                             <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    어울리는 맥주
+                                </div>
                                 <div data-role="collapsible" data-collapsed="false">
-                                    <h3>음식1</h3>
+                                    <h3>테라</h3>
                                     <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
                                 </div>
                                 <div data-role="collapsible">
-                                    <h3>음식2</h3>
+                                    <h3>카스</h3>
                                     <p>I'm the collapsibleset content for section 2.</p>
                                 </div>
                                 <div data-role="collapsible">
-                                    <h3>음식3</h3>
+                                    <h3>클라우드</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    종류
+                                </div>
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>BHC</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>교촌치킨</h3>
                                     <p>I'm the collapsibleset content for section 2.</p>
                                 </div>
                                 <div data-role="collapsible">
-                                    <h3>음식4</h3>
+                                    <h3>페리카나</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>굽네치킨</h3>
                                     <p>I'm the collapsibleset content for section 2.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div id="page34" data-role="content" class="ui-content">
+                    <div class="box">
+                        <h3>피자</h3>
+                        <img src="sample/pizza.jpg" alt="example" style="width: 83vw;">
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    어울리는 맥주
+                                </div>
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>테라</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>카스</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>클라우드</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    종류
+                                </div>
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>파파존스</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>빽보이</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>피자헛</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>미스터피자</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" onclick="$.mobile.silentScroll(0)" data-role="button">상단으로</a>
+                </div>
             </div>
             <div id="page15">
-                <h2 class="ui-title">추천 게시판</h2>
+                <h3 class="ui-title">추천 게시판</h3>
                 <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
                     <li class="ul-li-has-thumb ui-first-child">
                         <a href="#page29" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_01.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
+                            <img src="sample/hoo.jpg" alt="sample">
+                            <h2>역시 맥주는 고기랑!</h2>
+                            <p>맥주는 고기랑 먹어야..</p>
                         </a>
                     </li>
                     <li class="ul-li-has-thumb ui-first-child">
                         <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_02.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
+                            <img src="sample/hoo2.jpg" alt="sample">
+                            <h2>뿌링클 강력 추천!</h2>
+                            <p>뿌링클에 어울리는건 테라가...</p>
                         </a>
                     </li>
                     <li class="ul-li-has-thumb ui-first-child">
                         <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_03.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
+                            <img src="sample/hoo3.jpg" alt="sample">
+                            <h2>낙곱새 추천합니다</h2>
+                            <p>술이 저절로 들어가는 맛!</p>
                         </a>
                     </li>
                     <li class="ul-li-has-thumb ui-first-child">
                         <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_04.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
+                            <img src="sample/hoo4.jpg" alt="sample">
+                            <h2>떡순은 진리</h2>
+                            <p>떡순에 카스 한모금이면 피로가 싹!</p>
                         </a>
                     </li>
                     <li class="ul-li-has-thumb ui-first-child">
                         <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_05.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
+                            <img src="sample/hoo5.jpg" alt="sample">
+                            <h2>닭꼬치+치킨+맥주=꿀조합</h2>
+                            <p>기분내고 싶을 때 추천드려요</p>
                         </a>
                     </li>
                 </ol>
@@ -476,12 +534,12 @@
         </footer>
     </div>
 </div>
-<!-- 맥주 브랜드명 1 보기 -->
+<!-- 맥주 브랜드1 -->
 <div id="page4" data-role="page4" class="ui-page ui-page-theme-a">
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -518,10 +576,14 @@
         </nav>
     </header>
     <div data-role="content" class="ui-content">
-        <h2 class="ui-title">맥주 브랜드명 1</h2>
+        <h2 class="ui-title">하이트 진로</h2>
         <div dat-role="content" role="sub" class="ui-content">
-            <div class="box">
-                <img src="sample/sample_images_02.png" alt="example" style="width: 48vh;">
+            <div class="player">
+                <div class="video-player">
+                    <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                        <source src="/video/terra.mp4" type="video/mp4">
+                    </video>
+                </div>    
             </div>
         </div>
     </div>
@@ -533,19 +595,19 @@
                 </li>
                 <li>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름1</h4>
+                        <h4>테라(TERRA)</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름2</h4>
+                        <h4>하이트엑스트라콜드(Hite EXTRA COLD)</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름3</h4>
+                        <h4>맥스(MAX)</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름4</h4>
+                        <h4>에스라이트(S light)</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름5</h4>
+                        <h4>스타우트(Stout)</h4>
                     </a>                
                 </li>    
             </ul>
@@ -554,6 +616,218 @@
         <div class="ui-block-b">
             <div data-role="content" role="sub" class="ui-content">
                 <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 맥주 브랜드2 -->
+<div id="page31" data-role="page31" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a" data-icon="custom">
+                    <a href="#page3" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom1">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b" data-icon="custom">
+                    <a href="#page5" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom2">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c" data-icon="custom">
+                    <a href="#page7" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom3">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d" data-icom="custom">
+                    <a href="#page9" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom4">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e" data-icon="custom">
+                    <a href="#page11" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom5">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">OB</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="player">
+                <div class="video-player">
+                    <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                        <source src="/video/OB.mp4" type="video/mp4">
+                    </video>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>오비라거(OB Lager)</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>한맥(Hanmac)</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>카스(Cass Fresh)</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>스텔라(Stella Artois)</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>필굿(FiLGOOD)</h4>
+                    </a>                
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 맥주 브랜드3 -->
+<div id="page32" data-role="page32" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a" data-icon="custom">
+                    <a href="#page3" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom1">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b" data-icon="custom">
+                    <a href="#page5" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom2">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c" data-icon="custom">
+                    <a href="#page7" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom3">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d" data-icom="custom">
+                    <a href="#page9" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom4">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e" data-icon="custom">
+                    <a href="#page11" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom5">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">롯데칠성음료</h2>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="player">
+                <div class="video-player">
+                    <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                        <source src="/video/Kloud.mp4" type="video/mp4">
+                    </video>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>클라우드(Kloud)</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>클라우드 생드래프트(Kloud DRAFT)</h4>
+                    </a>      
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
                     <div data-role="collapsible" data-collapsed="false">
                         <h3>브랜드 연혁</h3>
                         <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
@@ -583,7 +857,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -633,138 +907,138 @@
                 <div dat-role="content" role="sub" class="ui-content">
                     <h2 class="ui-title">브랜드</h2>
                     <div class="box">
-                        <img src="sample/sample_images_02.png" alt="example" style="width: 48vh;">
+                        <img src="sample/soju.jpg" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div data-role="content" role="sub" class="ui-content">
                     <h3>브랜드 찾기</h3>
                     <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
-                        <li class="ul-li-has-thumb ui-first-child">
+                        <li class="ui-first-child">
                             <a href="#page6" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_02.png" alt="sample">
-                                <h3>브랜드명1</h3>
+                                <h3>하이트 진로</h3>
                             </a>
                         </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_03.png" alt="sample">
-                                <h3>브랜드명2</h3>
+                        <li class="ui-body-inherit">
+                            <a href="#page35" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <h3>한라산</h3>
                             </a>
                         </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_04.png" alt="sample">
-                                <h3>브랜드명3</h3>
-                            </a>
-                        </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_05.png" alt="sample">
-                                <h3>브랜드명4</h3>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
             <div id="page17">
-                <div data-role="content" class="ui-content">
-                    <h2 class="ui-title">추천 메뉴</h2>
-                    <select name="select-choice-0" id="select-choice-0">
-                        <option value="추천메뉴1">추천메뉴1</option>
-                        <option value="추천메뉴2">추천메뉴2</option>
-                        <option value="추천메뉴3">추천메뉴3</option>
-                        <option value="추천메뉴4">추천메뉴4</option>
+                <div id="page36" data-role="content" class="ui-content">
+                    <h3 class="ui-title">추천 메뉴</h3>
+                    <select name="select-choice-0" id="select-choice-0" onchange="if(this.value) location.href=(this.value)">
+                        <option value="#page36">회</option>
+                        <option value="#page37">전골</option>
                     </select>
                     <div class="box">
-                        <img src="sample/sample_images_12.png" alt="example" style="width: 48vh;">
+                        <h3>회</h3>
+                        <img src="sample/fish.jpg" alt="example" style="width: 83vw;">
                     </div>
-                </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <div data-role="content" role="sub" class="ui-content">
-                        <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
-                            <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">추천 메뉴에 어울리는 맥주
-                            </li>
-                            <li>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름1</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름2</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름3</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름4</h4>
-                                </a>
-                                <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                    <h4>제품 이름5</h4>
-                                </a>                
-                            </li>    
-                        </ul>
-                        </div>
-                    </div>
-                    <div class="ui-block-b">
-                        <div data-role="content" role="sub" class="ui-content">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
                             <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    어울리는 소주
+                                </div>
                                 <div data-role="collapsible" data-collapsed="false">
-                                    <h3>음식1</h3>
+                                    <h3>진로</h3>
                                     <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
                                 </div>
                                 <div data-role="collapsible">
-                                    <h3>음식2</h3>
+                                    <h3>참이슬</h3>
                                     <p>I'm the collapsibleset content for section 2.</p>
                                 </div>
                                 <div data-role="collapsible">
-                                    <h3>음식3</h3>
+                                    <h3>한라산</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    종류
+                                </div>
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>참치</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>광어</h3>
                                     <p>I'm the collapsibleset content for section 2.</p>
                                 </div>
                                 <div data-role="collapsible">
-                                    <h3>음식4</h3>
+                                    <h3>우럭</h3>
                                     <p>I'm the collapsibleset content for section 2.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div id="page37" data-role="content" class="ui-content">
+                    <div class="box">
+                        <h3>전골</h3>
+                        <img src="sample/gol.jpg" alt="example" style="width: 83vw;">
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    어울리는 소주
+                                </div>
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>진로</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>참이슬</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>한라산</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-block-b">
+                            <div data-role="collapsible-set">
+                                <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                                    종류
+                                </div>
+                                <div data-role="collapsible" data-collapsed="false">
+                                    <h3>버섯전골</h3>
+                                    <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>불낙전골</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>곱창전골</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                                <div data-role="collapsible">
+                                    <h3>만두전골</h3>
+                                    <p>I'm the collapsibleset content for section 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" onclick="$.mobile.silentScroll(0)" data-role="button">상단으로</a>
+                </div>
             </div>
             <div id="page18">
-                <h2 class="ui-title">추천 게시판</h2>
+                <h3 class="ui-title">추천 게시판</h3>
                 <ol class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
                     <li class="ul-li-has-thumb ui-first-child">
                         <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_01.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
-                        </a>
-                    </li>
-                    <li class="ul-li-has-thumb ui-first-child">
-                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_02.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
-                        </a>
-                    </li>
-                    <li class="ul-li-has-thumb ui-first-child">
-                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_03.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
-                        </a>
-                    </li>
-                    <li class="ul-li-has-thumb ui-first-child">
-                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_04.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
-                        </a>
-                    </li>
-                    <li class="ul-li-has-thumb ui-first-child">
-                        <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                            <img src="sample/sample_images_05.png" alt="sample">
-                            <h2>추천게시판</h2>
-                            <p>테스트</p>
+                            <img src="sample/gol.jpg" alt="sample">
+                            <h2>역시 소주는 전골이랑!</h2>
+                            <p>소주는 전골이랑 먹어야..</p>
                         </a>
                     </li>
                 </ol>
@@ -783,7 +1057,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -820,10 +1094,15 @@
         </nav>
     </header>
     <div data-role="content" class="ui-content">
-        <h2 class="ui-title">소주 브랜드명 1</h2>
+        <h2 class="ui-title">하이트 진로</h2>
+        <a href="#page5" class="ui-btn ui-icon-back ui-btn-icon-left backpage" data-role="button" role="button">이전페이지</a>
         <div dat-role="content" role="sub" class="ui-content">
-            <div class="box">
-                <img src="sample/sample_images_03.png" alt="example" style="width: 48vh;">
+            <div class="player">
+                <div class="video-player">
+                    <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                        <source src="/video/jin.mp4" type="video/mp4">
+                    </video>
+                </div>    
             </div>
         </div>
     </div>
@@ -835,20 +1114,14 @@
                 </li>
                 <li>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름1</h4>
+                        <h4>참이슬(fresh)</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름2</h4>
+                        <h4>참이슬(오리지널)</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름3</h4>
-                    </a>
-                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름4</h4>
-                    </a>
-                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름5</h4>
-                    </a>                
+                        <h4>진로</h4>
+                    </a>               
                 </li>    
             </ul>
             </div>
@@ -856,6 +1129,113 @@
         <div class="ui-block-b">
             <div data-role="content" role="sub" class="ui-content">
                 <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 소주브랜드2 -->
+<div id="page35" data-role="page35" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a" data-icon="custom">
+                    <a href="#page3" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom1">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b" data-icon="custom">
+                    <a href="#page5" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom2">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c" data-icon="custom">
+                    <a href="#page7" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom3">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d" data-icom="custom">
+                    <a href="#page9" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom4">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e" data-icon="custom">
+                    <a href="#page11" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom5">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">한라산</h2>
+        <a href="#page5" class="ui-btn ui-icon-back ui-btn-icon-left backpage" data-role="button" role="button">이전페이지</a>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="player">
+                <div class="video-player">
+                    <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                        <source src="/video/han.mp4" type="video/mp4">
+                    </video>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>한라산21</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>한라산17</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>허벅술</h4>
+                    </a>               
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
                     <div data-role="collapsible" data-collapsed="false">
                         <h3>브랜드 연혁</h3>
                         <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
@@ -885,7 +1265,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -935,34 +1315,25 @@
                 <div dat-role="content" role="sub" class="ui-content">
                     <h2 class="ui-title">브랜드</h2>
                     <div class="box">
-                        <img src="sample/sample_images_02.png" alt="example" style="width: 48vh;">
+                        <img src="sample/mak.jpg" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div data-role="content" role="sub" class="ui-content">
                     <h3>브랜드 찾기</h3>
                     <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview" data-filter="true" data-filter-placeholder="Search...">
-                        <li class="ul-li-has-thumb ui-first-child">
+                        <li class="ui-first-child">
                             <a href="#page8" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_02.png" alt="sample">
-                                <h3>브랜드명1</h3>
+                                <h3>배혜정도가</h3>
                             </a>
                         </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_03.png" alt="sample">
-                                <h3>브랜드명2</h3>
+                        <li class="ui-body-inherit">
+                            <a href="#page38" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <h3>국순당</h3>
                             </a>
                         </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_04.png" alt="sample">
-                                <h3>브랜드명3</h3>
-                            </a>
-                        </li>
-                        <li class="ul-li-has-thumb ui-body-inherit">
-                            <a href="#" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                                <img src="sample/sample_images_05.png" alt="sample">
-                                <h3>브랜드명4</h3>
+                        <li class="ui-body-inherit">
+                            <a href="#page39" id="heart" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                                <h3>지평생</h3>
                             </a>
                         </li>
                     </ul>
@@ -978,7 +1349,7 @@
                         <option value="추천메뉴4">추천메뉴4</option>
                     </select>
                     <div class="box">
-                        <img src="sample/sample_images_12.png" alt="example" style="width: 48vh;">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div class="ui-grid-a">
@@ -1085,7 +1456,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1122,10 +1493,10 @@
         </nav>
     </header>
     <div data-role="content" class="ui-content">
-        <h2 class="ui-title">막걸리 브랜드명 1</h2>
+        <h2 class="ui-title">배혜정도가</h2>
         <div dat-role="content" role="sub" class="ui-content">
             <div class="box">
-                <img src="sample/sample_images_04.png" alt="example" style="width: 48vh;">
+                <img src="sample/bea.jpg" alt="example" style="width: 83vw;">
             </div>
         </div>
     </div>
@@ -1137,19 +1508,19 @@
                 </li>
                 <li>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름1</h4>
+                        <h4>우곡주</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름2</h4>
+                        <h4>생막걸리</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름3</h4>
+                        <h4>호랑이생막걸리</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름4</h4>
+                        <h4>생 옥수수 동동주</h4>
                     </a>
                     <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
-                        <h4>제품 이름5</h4>
+                        <h4>우곡 생주</h4>
                     </a>                
                 </li>    
             </ul>
@@ -1158,6 +1529,113 @@
         <div class="ui-block-b">
             <div data-role="content" role="sub" class="ui-content">
                 <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>브랜드 연혁</h3>
+                        <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 특징</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>브랜드 설명2</h3>
+                        <p>I'm the collapsibleset content for section 2.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
+    <h3>©copyright</h3>
+</footer>
+</div>
+<!-- 막걸리 브랜드명 2 보기 -->
+<div id="page38" data-role="page38" class="ui-page ui-page-theme-a">
+    <header data-role="header" class="ui-header" data-theme="a">
+        <h1 role="heading" class="ui-title">수리랑</h1>
+        <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
+        <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
+            <ul class="ui-grid-d">
+                <li class="ui-block-a" data-icon="custom">
+                    <a href="#page3" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom1">
+                        <span class="ui-btn-text">맥주</span>
+                        <span class="ui-icon ui-icon-bars ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-b" data-icon="custom">
+                    <a href="#page5" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom2">
+                        <span class="ui-btn-text">소주</span>
+                        <span class="ui-icon ui-icon-home ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-c" data-icon="custom">
+                    <a href="#page7" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom3">
+                        <span class="ui-btn-text">막걸리</span>
+                        <span class="ui-icon ui-icon-grid ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-d" data-icom="custom">
+                    <a href="#page9" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom4">
+                        <span class="ui-btn-text">와인</span>
+                        <span class="ui-icon ui-icon-heart ui-icon-shadow"></span>
+                    </a>
+                </li>
+                <li class="ui-block-e" data-icon="custom">
+                    <a href="#page11" data-theme="b" class="ui-btn ui-btn-icon-top ui-btn-up-a ui-icon-custom5">
+                        <span class="ui-btn-text">위스키</span>
+                        <span class="ui-icon ui-icon-user ui-icon-shadow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2 class="ui-title">국순당</h2>
+        <a href="#page7" class="ui-btn ui-icon-back ui-btn-icon-left backpage" data-role="button" role="button">이전페이지</a>
+        <div dat-role="content" role="sub" class="ui-content">
+            <div class="player">
+                <div class="video-player">
+                    <video id="vdo1" class="video-js" controls preload="auto" data-setup="{}">
+                        <source src="/video/guk.mp4" type="video/mp4">
+                    </video>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-a">
+        <div class="ui-block-a">
+            <div data-role="content" role="sub" class="ui-content">
+            <ul class="ui-listview ui-listview-inset ui-corner-all ui-body-a ui-shadow" data-inset="true" data-role="listview">
+                <li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">제품 목록
+                </li>
+                <li>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>이화주</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>자연담은 막걸리</h4>
+                    </a>
+                    <a href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+                        <h4>국순당생막걸리</h4>
+                    </a>              
+                </li>    
+            </ul>
+            </div>
+        </div>
+        <div class="ui-block-b">
+            <div data-role="content" role="sub" class="ui-content">
+                <div data-role="collapsible-set">
+                    <div role="heading" class="ui-page-theme-a ui-bar-inherit ui-body-a heading">
+                        브랜드 소개
+                    </div>
                     <div data-role="collapsible" data-collapsed="false">
                         <h3>브랜드 연혁</h3>
                         <p>I'm the collapsibleset content for section 1. My content is initially visible.</p>
@@ -1187,7 +1665,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1237,7 +1715,7 @@
                 <div dat-role="content" role="sub" class="ui-content">
                     <h2 class="ui-title">브랜드</h2>
                     <div class="box">
-                        <img src="sample/sample_images_02.png" alt="example" style="width: 48vh;">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div data-role="content" role="sub" class="ui-content">
@@ -1280,7 +1758,7 @@
                         <option value="추천메뉴4">추천메뉴4</option>
                     </select>
                     <div class="box">
-                        <img src="sample/sample_images_12.png" alt="example" style="width: 48vh;">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div class="ui-grid-a">
@@ -1387,7 +1865,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1427,7 +1905,7 @@
         <h2 class="ui-title">와인 브랜드명 1</h2>
         <div dat-role="content" role="sub" class="ui-content">
             <div class="box">
-                <img src="sample/sample_images_05.png" alt="example" style="width: 48vh;">
+                <img src="sample/sample_images_05.png" alt="example" style="width: 83vw;">
             </div>
         </div>
     </div>
@@ -1489,7 +1967,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1539,7 +2017,7 @@
                 <div dat-role="content" role="sub" class="ui-content">
                     <h2 class="ui-title">브랜드</h2>
                     <div class="box">
-                        <img src="sample/sample_images_02.png" alt="example" style="width: 48vh;">
+                        <img src="sample/sample_images_02.png" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div data-role="content" role="sub" class="ui-content">
@@ -1582,7 +2060,7 @@
                         <option value="추천메뉴4">추천메뉴4</option>
                     </select>
                     <div class="box">
-                        <img src="sample/sample_images_12.png" alt="example" style="width: 48vh;">
+                        <img src="sample/sample_images_12.png" alt="example" style="width: 83vw;">
                     </div>
                 </div>
                 <div class="ui-grid-a">
@@ -1689,7 +2167,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1729,7 +2207,7 @@
         <h2 class="ui-title">위스키 브랜드명 1</h2>
         <div dat-role="content" role="sub" class="ui-content">
             <div class="box">
-                <img src="sample/sample_images_06.png" alt="example" style="width: 48vh;">
+                <img src="sample/sample_images_06.png" alt="example" style="width: 83vw;">
             </div>
         </div>
     </div>
@@ -1792,7 +2270,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1861,7 +2339,7 @@
     <header data-role="header" class="ui-header" data-theme="a">
         <h1 role="heading" class="ui-title">수리랑</h1>
         <a href="#page1" data-role="main" class="ui-btn ui-btn-right ui-icon-user ui-btn-icon-right" role="button">로그인</a>
-        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-back ui-btn-icon-left" role="button">메인</a>
+        <a href="#page" data-role="main" class="ui-btn ui-btn-left ui-icon-home ui-btn-icon-left" role="button">메인</a>
         <nav data-role="navbar" data-grid="d" role="navigation" class="nav-glyphish-example ui-navbar">
             <ul class="ui-grid-d">
                 <li class="ui-block-a" data-icon="custom">
@@ -1897,14 +2375,13 @@
             </ul>
         </nav>
     </header>
-    <div data-role="content" class="ui-content">
-        <h2 class="ui-title">추천 게시판</h2>
-    </div>
+    <!-- 추천 -->
     <div data-role="content" role="sub" class="ui-content">
         <div dat-role="content" role="sub" class="ui-content">
+            <h2 class="ui-title">추천 게시판</h2>
             <div class="box">
                 <label for="text-write" class="text-title"><strong>이미지 :</strong></label>
-                <img src="sample/sample_images_01.png" alt="example" style="width: 48vh;">
+                <img src="sample/hoo.jpg" alt="example" style="width: 83vw;">
             </div>
             <table data-role="table" id="my-table" data-mode="reflow">
                 <thead>
@@ -1918,14 +2395,15 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <th>테스트</th>
-                    <td>테스트 내용</td>
-                    <td>dummy</td>
+                    <th>역시 맥주는 고기랑!</th>
+                    <td>맥주는 고기랑 먹어야 제대로 즐겼다고 할 수 있습니다!</td>
+                    <td>육식최고</td>
                     <td>2022-12-27</td>
                     <td>74</td>
                   </tr>
                   </tbody>
               </table>
+              <a href="#page3" class="ui-btn ui-icon-back ui-btn-icon-left backpage" data-role="button" role="button">이전페이지</a>
         </div>
     </div>
 <footer data-role="footer" class="ui-footer" data-theme="a" data-position="fixed">
